@@ -31,18 +31,18 @@ public class OperacaoController extends BaseController {
 	}
 	
 	@PostMapping (path = "/depositoSaque")
-    public ResponseEntity inserir(@RequestBody OperacaoRequest operacaoSpec) {
+    public ResponseEntity inserir(@RequestBody OperacaoRequest request) {
 		try {
-			BaseResponse response = _service.inserir(operacaoSpec);
+			BaseResponse response = _service.inserir(request);
 			return ResponseEntity.status(response.getStatusCode()).body(response);			
 		} catch (Exception e) {
 			return ResponseEntity.status(errorBase.getStatusCode()).body(errorBase);
 		}
     }
-	@PostMapping (path = "/tranferencia")
-    public ResponseEntity transferencia(@RequestBody TransferenciaRequest transferenciaSpec) {
+	@PostMapping (path = "/transferencia")
+    public ResponseEntity transferencia(@RequestBody TransferenciaRequest request) {
 		try {
-			BaseResponse response = _service.transferencia(transferenciaSpec);
+			BaseResponse response = _service.transferencia(request);
 			return ResponseEntity.status(response.getStatusCode()).body(response);			
 		} catch (Exception e) {
 			return ResponseEntity.status(errorBase.getStatusCode()).body(errorBase);
